@@ -1,19 +1,19 @@
-import React, { memo } from 'react'
-import { RefreshControl, ViewToken } from 'react-native'
+import React, {memo} from 'react'
+import {RefreshControl, ViewToken} from 'react-native'
 import {
   FlatListPropsWithLayout,
   runOnJS,
   useSharedValue,
 } from 'react-native-reanimated'
-import { updateActiveVideoViewAsync } from '@haileyok/bluesky-video'
-import { useAnimatedScrollHandler } from '~/hooks/useAnimatedScrollHandler_FIXED.web'
-import { useDedupe } from '~/hooks/useDedupe'
-import { useScrollHandlers } from '~/lib/ScrollContext'
+import {updateActiveVideoViewAsync} from '@haileyok/bluesky-video'
+import {useAnimatedScrollHandler} from '~/hooks/useAnimatedScrollHandler_FIXED.web'
+import {useDedupe} from '~/hooks/useDedupe'
+import {useScrollHandlers} from '~/lib/ScrollContext'
 // import {addStyle} from '~/strings/styles'
-import { isAndroid, isIOS } from '~/lib/platform/detection'
+import {isAndroid, isIOS} from '~/lib/platform/detection'
 // import {useLightbox} from '~/shell/lightbox'
-import { FlatList_INTERNAL } from './Views'
-import { addStyle } from '~/strings/styles'
+import {FlatList_INTERNAL} from './Views'
+import {addStyle} from '~/strings/styles'
 
 export type ListMethods = FlatList_INTERNAL
 export type ListProps<ItemT = any> = Omit<
@@ -109,10 +109,7 @@ let List = React.forwardRef<ListMethods, ListProps>(
         return [undefined, undefined]
       }
       return [
-        (info: {
-          viewableItems: ViewToken[]
-          changed: ViewToken[]
-        }) => {
+        (info: {viewableItems: ViewToken[]; changed: ViewToken[]}) => {
           for (const item of info.changed) {
             if (item.isViewable) {
               onItemSeen(item.item)
@@ -144,7 +141,7 @@ let List = React.forwardRef<ListMethods, ListProps>(
       style = addStyle(style, {
         paddingTop: headerOffset,
       })
-      contentOffset = { x: 0, y: headerOffset * -1 }
+      contentOffset = {x: 0, y: headerOffset * -1}
     }
 
     return (
@@ -175,4 +172,4 @@ let List = React.forwardRef<ListMethods, ListProps>(
 List.displayName = 'List'
 
 List = memo(List)
-export { List }
+export {List}

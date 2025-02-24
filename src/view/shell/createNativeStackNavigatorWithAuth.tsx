@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { View } from 'react-native'
+import {View} from 'react-native'
 // Based on @react-navigation/native-stack/src/createNativeStackNavigator.ts
 // MIT License
 // Copyright (c) 2017 React Navigation Contributors
@@ -18,9 +18,9 @@ import type {
   NativeStackNavigationEventMap,
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack'
-import { NativeStackView } from '@react-navigation/native-stack'
-import type { NativeStackNavigatorProps } from '@react-navigation/native-stack/src/types'
-import { Text } from '~/components/ui/text'
+import {NativeStackView} from '@react-navigation/native-stack'
+import type {NativeStackNavigatorProps} from '@react-navigation/native-stack/src/types'
+import {Text} from '~/components/ui/text'
 
 type NativeStackNavigationOptionsWithAuth = NativeStackNavigationOptions & {
   requireAuth?: boolean
@@ -35,7 +35,7 @@ function NativeStackNavigator({
   ...rest
 }: NativeStackNavigatorProps) {
   // --- this is copy and pasted from the original native stack navigator ---
-  const { state, descriptors, navigation, NavigationContent } =
+  const {state, descriptors, navigation, NavigationContent} =
     useNavigationBuilder<
       StackNavigationState<ParamListBase>,
       StackRouterOptions,
@@ -77,7 +77,7 @@ function NativeStackNavigator({
 
   // --- our custom logic starts here ---
   const hasSession = true
-  const currentAccount = { signupQueued: false }
+  const currentAccount = {signupQueued: false}
   const activeRoute = state.routes[state.index]
   const activeDescriptor = descriptors[activeRoute.key]
   const activeRouteRequiresAuth = activeDescriptor.options.requireAuth ?? false
@@ -86,9 +86,11 @@ function NativeStackNavigator({
   //   return "HELLO"
   // }
   if (hasSession && currentAccount?.signupQueued) {
-    return <View>
-      <Text>SIGN UP SCREEN</Text>
-    </View>
+    return (
+      <View>
+        <Text>SIGN UP SCREEN</Text>
+      </View>
+    )
   }
 
   // if (onboardingState.isActive) {

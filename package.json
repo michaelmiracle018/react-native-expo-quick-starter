@@ -48,7 +48,8 @@
         "compile": "lingui compile",
         "format": "prettier --write \"src/**/*.{tsx,ts,js,jsx}\"",
         "rm-modules": "rm -rf node_modules",
-        "start-clear": "expo start --clear"
+        "start-clear": "expo start --clear",
+        "knip": "knip"
     },
     "dependencies": {
         "@discord/bottom-sheet": "bluesky-social/react-native-bottom-sheet",
@@ -58,7 +59,6 @@
         "@formatjs/intl-locale": "^4.2.5",
         "@formatjs/intl-pluralrules": "^5.3.5",
         "@gorhom/portal": "^1.0.14",
-        "@haileyok/bluesky-video": "^0.2.6",
         "@hookform/error-message": "^2.0.1",
         "@hookform/resolvers": "^3.3.4",
         "@lingui/cli": "^4.14.0",
@@ -87,17 +87,14 @@
         "@types/react-native-crypto-js": "^1.0.3",
         "axios": "^1.7.7",
         "babel-plugin-transform-remove-console": "^6.9.4",
-        "bcp-47": "^2.1.0",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
-        "date-fns": "^4.1.0",
         "eas-cli": "^9.2.0",
         "email-validator": "^2.0.4",
         "eventemitter3": "^5.0.1",
         "expo": "~52.0.6",
         "expo-blur": "^14.0.1",
         "expo-build-properties": "^0.13.1",
-        "expo-clipboard": "^7.0.0",
         "expo-dev-client": "^5.0.4",
         "expo-device": "~7.0.2",
         "expo-haptics": "^14.0.0",
@@ -166,6 +163,7 @@
         "jest": "^29.7.0",
         "jest-expo": "~52.0.1",
         "jest-junit": "^15.0.0",
+        "knip": "^5.44.5",
         "lint-staged": "^13.2.3",
         "metro-minify-terser": "^0.80.9",
         "metro-react-native-babel-preset": "^0.73.7",
@@ -235,5 +233,8 @@
             "eslint --cache --fix",
             "prettier --cache --write --ignore-unknown"
         ]
-    }
+    },
+    "ignoreDependencies": [
+        "expo-*"
+    ]
 }

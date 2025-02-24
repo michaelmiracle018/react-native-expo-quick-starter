@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { AccessibilityInfo, View } from 'react-native'
+import {useEffect, useMemo, useRef, useState} from 'react'
+import {AccessibilityInfo, View} from 'react-native'
 import {
   Gesture,
   GestureDetector,
@@ -16,16 +16,13 @@ import Animated, {
   withSpring,
 } from 'react-native-reanimated'
 import RootSiblings from 'react-native-root-siblings'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { useNonReactiveCallback } from '~/hooks/useNonReactiveCallback'
-import { Text } from '~/components/ui/text'
+import {useSafeAreaInsets} from 'react-native-safe-area-context'
+import {useNonReactiveCallback} from '~/hooks/useNonReactiveCallback'
+import {Text} from '~/components/ui/text'
 
 const TIMEOUT = 2e3
 
-export function show(
-  message: string,
-  icon?: any
-) {
+export function show(message: string, icon?: any) {
   if (process.env.NODE_ENV === 'test') {
     return
   }
@@ -44,10 +41,9 @@ function Toast({
   icon?: any
   destroy: () => void
 }) {
+  console.log(message)
 
-  console.log(message);
-
-  const { top } = useSafeAreaInsets()
+  const {top} = useSafeAreaInsets()
   const isPanning = useSharedValue(false)
   const dismissSwipeTranslateY = useSharedValue(0)
   const [cardHeight, setCardHeight] = useState(0)
@@ -151,8 +147,8 @@ function Toast({
 
   return (
     <GestureHandlerRootView
-      style={[{ top: topOffset, left: 16, right: 16 }]}
-      className='absolute'
+      style={[{top: topOffset, left: 16, right: 16}]}
+      className="absolute"
       pointerEvents="box-none">
       {alive && (
         <Animated.View
@@ -166,26 +162,20 @@ function Toast({
             accessibilityLabel={message}
             accessibilityHint=""
             onAccessibilityEscape={hideAndDestroyImmediately}
-            style={[
-              animatedStyle,
-            ]}
-            className="flex-1 shadow-md rounded-sm border border-gray-300"
-          >
+            style={[animatedStyle]}
+            className="flex-1 shadow-md rounded-sm border border-gray-300">
             <GestureDetector gesture={panGesture}>
-              <View className='flex-1 px-4 p-y-4 flex-row gap-2'>
+              <View className="flex-1 px-4 p-y-4 flex-row gap-2">
                 <View
                   style={[
-                    { width: 32, height: 32 },
+                    {width: 32, height: 32},
                     // { backgroundColor: 'green' },
                   ]}
-                  className='shrink-0 rounded-lg items-center justify-center bg-red-400'
-                >
+                  className="shrink-0 rounded-lg items-center justify-center bg-red-400">
                   {/* Will put icon here */}
                 </View>
-                <View className='h-full flex-1 justify-center'>
-                  <Text className='text-lg'>
-                    {message}
-                  </Text>
+                <View className="h-full flex-1 justify-center">
+                  <Text className="text-lg">{message}</Text>
                 </View>
               </View>
             </GestureDetector>

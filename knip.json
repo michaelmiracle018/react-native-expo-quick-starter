@@ -1,0 +1,23 @@
+{
+    "entry": [
+        "App.{js,ts,tsx}",
+        "app.json",
+        "app/**/*.{js,ts,tsx}",
+        "src/index.{js,ts,tsx}"
+    ],
+    "project": [
+        "**/*.{js,ts,tsx}"
+    ],
+    "ignoreDependencies": [
+        "@expo/*",
+        "expo",
+        "react-native",
+        "react",
+        "react-navigation/*",
+        "jest",
+        "@testing-library/react-native"
+    ],
+    "ignoreBinaries": [
+        "expo-cli"
+    ]
+}

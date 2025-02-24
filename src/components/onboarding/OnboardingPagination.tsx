@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import {StyleSheet, View} from 'react-native'
 import Animated, {
   Extrapolate,
   SharedValue,
@@ -7,7 +7,7 @@ import Animated, {
   useAnimatedStyle,
 } from 'react-native-reanimated'
 
-import { type Data } from '../../assets/data'
+import {type Data} from '../../assets/data'
 import Colors from '~/constants/Colors'
 
 type PaginationCompProps = {
@@ -16,7 +16,7 @@ type PaginationCompProps = {
   screenWidth: number
 }
 
-const PaginationComp = ({ index, x, screenWidth }: PaginationCompProps) => {
+const PaginationComp = ({index, x, screenWidth}: PaginationCompProps) => {
   const animatedDotStyle = useAnimatedStyle(() => {
     const widthAnimation = interpolate(
       x.value,
@@ -55,7 +55,7 @@ type PaginationProps = {
   screenWidth: number
 }
 
-export function OnboardingPagination({ data, screenWidth, x }: PaginationProps) {
+export function OnboardingPagination({data, screenWidth, x}: PaginationProps) {
   return (
     <View style={styles.container}>
       {data.map((item, index) => (

@@ -1,6 +1,6 @@
-import { View } from 'react-native'
+import {View} from 'react-native'
 import React from 'react'
-import { RoutesContainer, TabsNavigator } from '~/navigation'
+import {RoutesContainer, TabsNavigator} from '~/navigation'
 
 export default function ShellInner() {
   return (

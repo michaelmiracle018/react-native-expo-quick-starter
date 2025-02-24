@@ -1,6 +1,6 @@
-import React, { useContext, useMemo } from 'react'
-import { StyleSheet, View, ViewProps, ViewStyle } from 'react-native'
-import { StyleProp } from 'react-native'
+import React, {useContext, useMemo} from 'react'
+import {StyleSheet, View, ViewProps, ViewStyle} from 'react-native'
+import {StyleProp} from 'react-native'
 import {
   KeyboardAwareScrollView,
   KeyboardAwareScrollViewProps,
@@ -9,15 +9,13 @@ import Animated, {
   AnimatedScrollViewProps,
   useAnimatedProps,
 } from 'react-native-reanimated'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { isWeb } from '~/lib/platform/detection'
-import { useShellLayout } from '~/state/shell-layout'
-import { ScrollbarOffsetContext } from './context'
-import { useBreakpoints } from '~/alf/breakpoints'
-
+import {useSafeAreaInsets} from 'react-native-safe-area-context'
+import {isWeb} from '~/lib/platform/detection'
+import {useShellLayout} from '~/state/shell-layout'
+import {ScrollbarOffsetContext} from './context'
+import {useBreakpoints} from '~/alf/breakpoints'
 
 // import {atoms as a, useBreakpoints, useTheme, web} from '#/alf'
-
 
 export type ScreenProps = React.ComponentProps<typeof View> & {
   style?: StyleProp<ViewStyle>
@@ -32,14 +30,11 @@ export const Screen = React.memo(function Screen({
   noInsetTop,
   ...props
 }: ScreenProps) {
-  const { top } = useSafeAreaInsets()
+  const {top} = useSafeAreaInsets()
   return (
     <>
       {isWeb && <WebCenterBorders />}
-      <View
-        style={[{ paddingTop: noInsetTop ? 0 : top }, style]}
-        {...props}
-      />
+      <View style={[{paddingTop: noInsetTop ? 0 : top}, style]} {...props} />
     </>
   )
 })
@@ -58,7 +53,7 @@ export const Content = React.memo(function Content({
   contentContainerStyle,
   ...props
 }: ContentProps) {
-  const { footerHeight } = useShellLayout()
+  const {footerHeight} = useShellLayout()
   const animatedProps = useAnimatedProps(() => {
     return {
       scrollIndicatorInsets: {
@@ -81,9 +76,7 @@ export const Content = React.memo(function Content({
         contentContainerStyle,
       ]}
       {...props}>
-
       {children}
-
     </Animated.ScrollView>
   )
 })
@@ -135,12 +128,12 @@ export const Center = React.memo(function LayoutContent({
   style,
   ...props
 }: ViewProps) {
-  const { isWithinOffsetView } = useContext(ScrollbarOffsetContext)
-  const { gtMobile } = useBreakpoints()
-  const ctx = useMemo(() => ({ isWithinOffsetView: true }), [])
+  const {isWithinOffsetView} = useContext(ScrollbarOffsetContext)
+  const {gtMobile} = useBreakpoints()
+  const ctx = useMemo(() => ({isWithinOffsetView: true}), [])
   return (
     <View
-      className='mx-auto w-full'
+      className="mx-auto w-full"
       style={[
         gtMobile && {
           maxWidth: 600,
@@ -159,9 +152,6 @@ export const Center = React.memo(function LayoutContent({
  * Only used within `Layout.Screen`, not for reuse
  */
 const WebCenterBorders = React.memo(function LayoutContent() {
-  const { gtMobile } = useBreakpoints()
-  return gtMobile ? (
-    <View
-    />
-  ) : null
+  const {gtMobile} = useBreakpoints()
+  return gtMobile ? <View /> : null
 })

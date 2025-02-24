@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { JSX } from 'react/jsx-runtime'
+import {JSX} from 'react/jsx-runtime'
 import {
   BottomTabBarProps,
   createBottomTabNavigator,
@@ -19,9 +19,9 @@ import {
   SearchTabNavigatorParams,
 } from '~/lib/routes/types'
 import HomeScreen from '~/screens/HomeScreen'
-import { createNativeStackNavigatorWithAuth } from '~/view/shell/createNativeStackNavigatorWithAuth'
-import { BottomBar } from '~/view/bottom-bar/BottomBar'
-import { Text } from '~/components/ui/text'
+import {createNativeStackNavigatorWithAuth} from '~/view/shell/createNativeStackNavigatorWithAuth'
+import {BottomBar} from '~/view/bottom-bar/BottomBar'
+import {Text} from '~/components/ui/text'
 import SearchScreen from '~/screens/SearchScreen'
 import NotificationScreen from '~/screens/NotificationScreen'
 import ProfileScreen from '~/screens/ProfileScreen'
@@ -30,6 +30,8 @@ import MessageScreen from '~/screens/MessageScreen'
 // Examples Components
 import ToastScreen from '~/examples/screens/ToastScreen'
 import InputScreen from '~/examples/screens/InputScreen'
+import FlatListScreen from '~/examples/screens/FLatListScreen'
+import DropDownScreen from '~/examples/screens/DropDownScreen'
 
 const navigationRef = createNavigationContainerRef<AllNavigatorParams>()
 
@@ -47,18 +49,30 @@ const Tab = createBottomTabNavigator<BottomTabNavigatorParams>()
  * These "common screens" are reused across stacks.
  */
 function commonScreens(Stack: typeof HomeTab, unreadCountLabel?: string) {
-  return <>
-    <Stack.Screen
-      name="ToastScreen"
-      getComponent={() => ToastScreen}
-      options={{ requireAuth: true }}
-    />
-    <Stack.Screen
-      name="InputScreen"
-      getComponent={() => InputScreen}
-      options={{ requireAuth: true }}
-    />
-  </>
+  return (
+    <>
+      <Stack.Screen
+        name="ToastScreen"
+        getComponent={() => ToastScreen}
+        options={{requireAuth: true}}
+      />
+      <Stack.Screen
+        name="InputScreen"
+        getComponent={() => InputScreen}
+        options={{requireAuth: true}}
+      />
+      <Stack.Screen
+        name="FlatListScreen"
+        getComponent={() => FlatListScreen}
+        options={{requireAuth: true}}
+      />
+      <Stack.Screen
+        name="DropDownScreen"
+        getComponent={() => DropDownScreen}
+        options={{requireAuth: true}}
+      />
+    </>
+  )
 }
 
 /**
@@ -78,7 +92,7 @@ function TabsNavigator() {
       <Tab.Navigator
         initialRouteName="HomeTab"
         backBehavior="initialRoute"
-        screenOptions={{ headerShown: false, lazy: true }}
+        screenOptions={{headerShown: false, lazy: true}}
         tabBar={tabBar}>
         <Tab.Screen name="HomeTab" getComponent={() => HomeTabNavigator} />
         <Tab.Screen name="SearchTab" getComponent={() => SearchTabNavigator} />
@@ -179,7 +193,7 @@ function MessagesTabNavigator() {
       <MessagesTab.Screen
         name="Messages"
         getComponent={() => MessageScreen}
-        options={({ route }) => ({
+        options={({route}) => ({
           requireAuth: true,
           animationTypeForReplace: route.params?.animation ?? 'push',
         })}
@@ -194,7 +208,7 @@ function MessagesTabNavigator() {
  * to the navigation context.
  */
 
-function RoutesContainer({ children }: React.PropsWithChildren<{}>) {
+function RoutesContainer({children}: React.PropsWithChildren<{}>) {
   const prevLoggedRouteName = React.useRef<string | undefined>(undefined)
 
   function onReady() {
@@ -227,4 +241,4 @@ function getCurrentRouteName() {
  * (eg in the state models).
  */
 
-export { RoutesContainer, TabsNavigator }
+export {RoutesContainer, TabsNavigator}
