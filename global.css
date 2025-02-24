@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --normal-toast-background: 210 15% 89%;
+    --err-toast-background: 0 15% 89%;
+    --toast-background: 150 15% 89%;
+    --background: 220 58% 100%;
+    --foreground: 220 61% 1%;
+    --muted: 40 7% 85%;
+    --muted-foreground: 40 14% 39%;
+    --popover: 220 58% 100%;
+    --popover-foreground: 220 61% 1%;
+    --card: 220 58% 100%;
+    --card-foreground: 220 61% 1%;
+    --border: 220 4% 90%;
+    --input: 220 4% 90%;
+    --primary: 220 97% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 97% 50%;
+    --secondary-foreground: 40 97% 10%;
+    --accent: 40 97% 50%;
+    --accent-foreground: 40 97% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 220 97% 50%;
+    --chart-1: 220 97% 50%;
+    --chart-2: 40 97% 50%;
+    --chart-3: 40 97% 50%;
+    --chart-4: 40 97% 53%;
+    --chart-5: 220 100% 50%;
+    --radius: 0.5rem;
+    /* --info: #3C50E0; */
+    --info: 233 73% 56%;
+
+    --info-foreground: 0 0% 100%;
+    --warning: 21 98% 52%;
+    --warning-foreground: 0 0% 0%;
+    --white-clr: #fff;
+    --transparent-clr: 240 10% 3.9%
+  }
+
+  .dark:root {
+    --normal-toast-background: 207 61% 5%;
+    --err-toast-background: 207 61% 5%;
+    --toast-background: 207 61% 5%;
+    --background: 220 32% 3%;
+    --foreground: 220 39% 99%;
+    --muted: 40 7% 15%;
+    --muted-foreground: 40 14% 61%;
+    --popover: 220 32% 3%;
+    --popover-foreground: 220 39% 99%;
+    --card: 220 32% 3%;
+    --card-foreground: 220 39% 99%;
+    --border: 220 4% 13%;
+    --input: 220 4% 13%;
+    --primary: 220 97% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 97% 50%;
+    --secondary-foreground: 40 97% 10%;
+    --accent: 40 97% 50%;
+    --accent-foreground: 40 97% 10%;
+    --destructive: 7 100% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 220 97% 50%;
+    --chart-1: 220 97% 50%;
+    --chart-2: 40 97% 50%;
+    --chart-3: 40 97% 50%;
+    --chart-4: 40 97% 53%;
+    --chart-5: 220 100% 50%;
+    --info: 231 67% 23%;
+    --info-foreground: 231 67% 83%;
+    --warning: 52 98% 17%;
+    --warning-foreground: 52 98% 57%;
+    --success: 139 76% 45%;
+    --success-foreground: 139 76% 5%;
+    --success: 94 98% 17%;
+    --success-foreground: 94 98% 57%;
+    --white-clr: #fff;
+    --transparent-clr: 0 0% 100%
+  }
+}
+
+@layer utilities {
+  .spacing-1 {
+    @apply px-3
+  }
+
+  .spacing-t-d {
+    @apply py-3
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center
+  }
+
+  .inner-modal {
+    @apply w-[95%] bg-background rounded-xl spacing-t-d spacing-1 border border-border shadow-lg shadow-foreground/5
+  }
+
+  .modal-container {
+    @apply flex-1 justify-center items-center p-2
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "emmet.preferences": {
+        "emmet.includeLanguages":{
+        "javascript":"javascriptreact"
+    }
+    },
+    "emmet.syntaxProfiles": {
+        
+    },
+    "npm-intellisense.importES6": true,
+    "editor.foldingImportsByDefault": false
+}

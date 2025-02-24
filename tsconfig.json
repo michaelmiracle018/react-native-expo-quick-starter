@@ -1,0 +1,34 @@
+{
+    "extends": "@react-native/typescript-config/tsconfig.json",
+    "compilerOptions": {
+      "jsx": "react-jsx",
+      "module": "esnext",
+      "types": ["node"],
+      "paths": {
+        "~/*": ["./src/*"],
+        "lib/*": ["./src/lib/*"],
+        "platform/*": ["./src/platform/*"],
+        "state/*": ["./src/state/*"],
+        "screens/*": ["./src/screens/*"],
+        "components/*": ["./src/components/*"],
+        "reactQuery/*": ["./src/reactQuery/*"],
+        "constants/*": ["./src/constants/*"],
+        "shared/*": ["./src/shared/*"],
+        "utils/*": ["./src/utils/*"],
+        "api/*": ["./src/api/*"],
+        "hooks/*": ["./src/hooks/*"],
+
+  
+        "reduxStore/*": ["./src/reduxStore/*"],
+  
+        "services/*": ["./src/services/*"],
+  
+  
+        "fontAwesomeIcons/*": ["./src/fontAwesomeIcons/*"],
+  
+  
+      }
+    },
+    
+    "exclude": ["web-build"]
+  }
