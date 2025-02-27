@@ -8,6 +8,15 @@ import { tabBarHeight } from '~/hooks/useBottomBarHeight'
 import { ThemeToggle } from '~/components/ThemeToggle'
 import { msg, t, Trans } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
+import { List } from '~/utils/List'
+import { useMemo } from 'react'
+
+// ! DON'T USE THIS NOT DONE WITH IT
+
+interface PropsData {
+    id: string;
+    title: string
+}
 
 const DATA = [
     {
@@ -24,22 +33,62 @@ const DATA = [
     },
 ];
 
+
 export default function FlatListScreen() {
     const Toast = useToast()
     const { i18n } = useLingui()
 
-    return (
-        <Layout.Content
-            className="bg-background spacing-1"
-            style={{ marginTop: statusBarHeight, marginBottom: tabBarHeight }}>
-            <View>
-                <View className="flex-row justify-between items-center">
-                    <Text className="text-3xl">
-                        <Trans>FlatList</Trans>
-                    </Text>
-                    <ThemeToggle />
-                </View>
+    const data = Array(200)
+        .fill(null)
+        .map((_, i) => ({ id: i.toString(), title: `Item ${i + 1}` }));
+    const dummyData = useMemo(() => {
+        return data
+    }, [])
+    function keyExtractor(item: PropsData) {
+        return item.id
+    }
+
+    function renderItem({ item, index }: { item: { title: string }; index: number }) {
+        return (
+            <View
+            >
+                <Text>
+                    {item.title}
+                </Text>
+
             </View>
-        </Layout.Content>
+        )
+    }
+    function onRefresh() {
+        console.log("kkk");
+
+    }
+
+    return (
+
+        <View
+            className="bg-background spacing-1 flex-1"
+            style={{ marginTop: statusBarHeight, marginBottom: tabBarHeight }}
+        >
+            <View className="flex-row justify-between items-center">
+                <Text className="text-3xl">
+                    <Trans>FlatList</Trans>
+                </Text>
+                <ThemeToggle />
+            </View>
+            <List
+                data={dummyData}
+                renderItem={renderItem}
+                keyExtractor={keyExtractor}
+                refreshing={false}
+                onRefresh={onRefresh}
+                // onEndReached={onEndReached}
+                onEndReachedThreshold={3}
+                initialNumToRender={2}
+                windowSize={11}
+                sideBorders={false}
+            />
+        </View>
+
     )
 }

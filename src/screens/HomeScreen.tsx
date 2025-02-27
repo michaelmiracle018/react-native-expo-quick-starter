@@ -1,19 +1,18 @@
 import React from 'react'
-import {View} from 'react-native'
-import {ThemeToggle} from '~/components/ThemeToggle'
-import {Text} from '~/components/ui/text'
-import {statusBarHeight} from '~/lib/platform/detection'
+import { View } from 'react-native'
+import { ThemeToggle } from '~/components/ThemeToggle'
+import { Text } from '~/components/ui/text'
+import { statusBarHeight } from '~/lib/platform/detection'
 import * as Layout from '~/components/layout'
-import {tabBarHeight} from '~/hooks/useBottomBarHeight'
-import {useLingui} from '@lingui/react'
+import { tabBarHeight } from '~/hooks/useBottomBarHeight'
+import { useLingui } from '@lingui/react'
 
-import {Button} from '~/components/ui/button'
-import {useToast} from 'react-native-toast-notifications'
-import {useNavigation} from '@react-navigation/native'
-import {NavigationProp} from '~/lib/routes/types'
+import { Button } from '~/components/ui/button'
+import { useNavigation } from '@react-navigation/native'
+import { NavigationProp } from '~/lib/routes/types'
 
 export default function HomeScreen() {
-  const {_} = useLingui()
+  const { _ } = useLingui()
   const navigation = useNavigation<NavigationProp>()
 
   const onPressToast = React.useCallback(() => {
@@ -23,7 +22,7 @@ export default function HomeScreen() {
   return (
     <Layout.Content
       className="bg-background spacing-1"
-      style={{marginTop: statusBarHeight, marginBottom: tabBarHeight}}>
+      style={{ marginTop: statusBarHeight, marginBottom: tabBarHeight }}>
       <Text className="text-3xl">COMPONENTS</Text>
       <View>
         <Button variant={'link'} onPress={onPressToast} className="mt-0">
