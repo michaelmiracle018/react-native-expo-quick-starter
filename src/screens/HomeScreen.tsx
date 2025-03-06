@@ -48,6 +48,12 @@ export default function HomeScreen() {
           <Text className="text-2xl">Drop Down</Text>
         </Button>
 
+        <Button
+          variant={'link'}
+          onPress={() => navigation.navigate('TimerScreen')}
+          className="mt-0">
+          <Text className="text-2xl">Timer</Text>
+        </Button>
         <ThemeToggle />
       </View>
     </Layout.Content>

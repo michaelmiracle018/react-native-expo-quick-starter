@@ -1,22 +1,22 @@
-import React, {ComponentProps} from 'react'
-import {GestureResponderEvent, View} from 'react-native'
-import {msg} from '@lingui/macro'
-import {useLingui} from '@lingui/react'
-import {BottomTabBarProps} from '@react-navigation/bottom-tabs'
-import {StackActions} from '@react-navigation/native'
-import {House} from '~/lib/icons/House'
-import {MessageCircle} from '~/lib/icons/MessageCircle'
-import {Search} from '~/lib/icons/Search'
-import {User} from '~/lib/icons/User'
-import {Bell} from '~/lib/icons/Bell'
-import {styles} from './BottomBarStyles'
-import {Text} from '~/components/ui/text'
-import {PressableScale} from '~/custom-animation/PressableScale'
-import {useNavigationTabState} from '~/hooks/useNavigationTabState'
-import {getTabState, TabState} from '~/lib/routes/helpers'
-import {emitSoftReset} from '~/events/events'
-import {useDedupe} from '~/hooks/useDedupe'
-import {useHomeBadge} from '~/state/home-badge'
+import React, { ComponentProps } from 'react'
+import { GestureResponderEvent, View } from 'react-native'
+import { msg } from '@lingui/macro'
+import { useLingui } from '@lingui/react'
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs'
+import { StackActions } from '@react-navigation/native'
+import { House } from '~/lib/icons/House'
+import { MessageCircle } from '~/lib/icons/MessageCircle'
+import { Search } from '~/lib/icons/Search'
+import { User } from '~/lib/icons/User'
+import { Bell } from '~/lib/icons/Bell'
+import { styles } from './BottomBarStyles'
+import { Text } from '~/components/ui/text'
+import { useNavigationTabState } from '~/hooks/useNavigationTabState'
+import { getTabState, TabState } from '~/lib/routes/helpers'
+import { emitSoftReset } from '~/events/events'
+import { useDedupe } from '~/hooks/useDedupe'
+import { useHomeBadge } from '~/state/home-badge'
+import { PressableScale } from '~/lib/custome-animations/PressableScale'
 
 type TabOptions =
   | 'Home'
@@ -26,11 +26,11 @@ type TabOptions =
   | 'Feeds'
   | 'Messages'
 
-export function BottomBar({navigation}: BottomTabBarProps) {
+export function BottomBar({ navigation }: BottomTabBarProps) {
   const hasSession = true
 
-  const {_} = useLingui()
-  const {isAtHome, isAtSearch, isAtNotifications, isAtMyProfile, isAtMessages} =
+  const { _ } = useLingui()
+  const { isAtHome, isAtSearch, isAtNotifications, isAtMyProfile, isAtMessages } =
     useNavigationTabState()
   const dedupe = useDedupe()
   const hasHomeBadge = useHomeBadge()

@@ -1,7 +1,7 @@
-import {NavigationState, PartialState} from '@react-navigation/native'
-import type {NativeStackNavigationProp} from '@react-navigation/native-stack'
+import { NavigationState, PartialState } from '@react-navigation/native'
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
-export type {NativeStackScreenProps} from '@react-navigation/native-stack'
+export type { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 export type CommonNavigatorParams = {
   ToastScreen: undefined
@@ -9,6 +9,7 @@ export type CommonNavigatorParams = {
   InputScreen: undefined
   FlatListScreen: undefined
   DropDownScreen: undefined
+  TimerScreen: undefined
 }
 
 export type BottomTabNavigatorParams = CommonNavigatorParams & {
@@ -24,7 +25,7 @@ export type HomeTabNavigatorParams = CommonNavigatorParams & {
 }
 
 export type SearchTabNavigatorParams = CommonNavigatorParams & {
-  Search: {q?: string}
+  Search: { q?: string }
 }
 
 export type NotificationsTabNavigatorParams = CommonNavigatorParams & {
@@ -36,17 +37,17 @@ export type MyProfileTabNavigatorParams = CommonNavigatorParams & {
 }
 
 export type MessagesTabNavigatorParams = CommonNavigatorParams & {
-  Messages: {pushToConversation?: string; animation?: 'push' | 'pop'}
+  Messages: { pushToConversation?: string; animation?: 'push' | 'pop' }
 }
 
 export type FlatNavigatorParams = CommonNavigatorParams & {
   Home: undefined
-  Search: {q?: string}
+  Search: { q?: string }
   Feeds: undefined
   Notifications: undefined
-  Hashtag: {tag: string; author?: string}
-  Topic: {topic: string}
-  Messages: {pushToConversation?: string; animation?: 'push' | 'pop'}
+  Hashtag: { tag: string; author?: string }
+  Topic: { topic: string }
+  Messages: { pushToConversation?: string; animation?: 'push' | 'pop' }
 }
 
 export type AllNavigatorParams = CommonNavigatorParams & {
@@ -61,6 +62,8 @@ export type AllNavigatorParams = CommonNavigatorParams & {
   InputScreen: undefined
   FlatListScreen: undefined
   DropDownScreen: undefined
+  TimerScreen: undefined
+
 }
 
 // NOTE
@@ -74,7 +77,7 @@ export type State =
   | Omit<PartialState<NavigationState>, 'stale'>
 
 export type RouteParams = Record<string, string>
-export type MatchResult = {params: RouteParams}
+export type MatchResult = { params: RouteParams }
 export type Route = {
   match: (path: string) => MatchResult | undefined
   build: (params: RouteParams) => string
